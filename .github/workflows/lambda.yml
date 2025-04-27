@@ -4,7 +4,7 @@ name: Deploy AWS Lambda
 on:
     push:
         branches:
-            -main
+            - main
         paths:
             - 'lambda/' 
             
@@ -12,10 +12,10 @@ jobs:
     deploy-lambda: # name of our jobs
         runs-on: ubuntu-latest # Sets or specifies the runner
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v4
         
             - name: Set Up Python # Sets up our python environment
-              uses: actions/setup-python@v2
+              uses: actions/setup-python@v4
               with:
                 python-version: '3.13'
 
@@ -31,7 +31,7 @@ jobs:
                 aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
                 aws-region: us-east-1
 
-            - name: Deploy Lambda Funcion #Zips lambda directory and updates lambda function
+            - name: Deploy Lambda Function #Zips lambda directory and updates lambda function
               run: |
                 cd lambda
                 zip -r lambda.zip .
