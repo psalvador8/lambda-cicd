@@ -6,15 +6,14 @@ on:
     branches:
       - main
     paths:
-      - 'lambda/'
-  workflow_dispatch:
+      - 'lambda/**'
+  
 
 jobs:
   deploy-lambda:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -33,7 +32,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: Deploy Lambda function
+      - name: Deploy  to AWS Lambda
         run: |
           cd lambda
           zip -r lambda.zip .

@@ -2,5 +2,5 @@ import json
 def lambda_handler(event, context):
     return {
         'statusCode': 200,
-        'body': json.dumps('Hello Lambda from vscode again ')
+        'body': json.dumps('Hello Lambda from vscode once again ')
     }
