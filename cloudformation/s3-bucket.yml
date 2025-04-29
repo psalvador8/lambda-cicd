@@ -10,11 +10,15 @@ Parameters:
       - staging
       - production
 
+  Suffix:
+    Type: String
+    Description: Unique suffix to avoid bucket name collisions    
+
 Resources:
   MyS3Bucket:
     Type: 'AWS::S3::Bucket'
     Properties:
-      BucketName: !Sub '${AWS::StackName}-${Environment}-${AWS::AccountId}-${AWS::Region}-${AWS::UniqueId}-bucket'
+      BucketName: !Sub '${AWS::StackName}-${Environment}-${Suffix}-bucket'
       Tags:
         - Key: Environment
           Value: !Ref Environment
