@@ -23,7 +23,7 @@ Resources:
         - Key: Project
           Value: GithubActionsTesting
         - Key: Dummy
-          Value: Test  
+          Value: Test123 
 
 Outputs:
   BucketName:
