@@ -22,8 +22,7 @@ Resources:
           Value: !Ref Environment
         - Key: Project
           Value: GithubActionsTesting
-        - Key: Dummy
-          Value: Test123 
+        
 
 Outputs:
   BucketName:
