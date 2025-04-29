@@ -35,7 +35,7 @@ jobs:
             --template-body file://cloudformation/s3-bucket.yml \
             --parameters ParameterKey=Environment,ParameterValue=test
 
-      - name: Comment on the PR
+      - name: Comment on PR
         uses: actions/github-script@v6
         with:
             github-token: ${{secrets.GITHUB_TOKEN}}
