@@ -17,7 +17,7 @@ Resources:
   MyS3Bucket:
     Type: 'AWS::S3::Bucket'
     Properties:
-      BucketName: !Sub '${AWS::StackName}-${Environment}-${AWS::Region}-${AWS::AccountId}-${RandomNumber}-bucket' # Ensure this is the dynamic name
+      BucketName: !Sub '${AWS::StackName}-${Environment}-${AWS::Region}-${AWS::AccountId}-${RandomNumber}-bucket' # dynamic name
       Tags:
         - Key: Environment
           Value: !Ref Environment

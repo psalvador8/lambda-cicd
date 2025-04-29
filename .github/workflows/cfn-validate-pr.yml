@@ -46,7 +46,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '✅ CloudFormation test stack deployed. Stack name: pr-test-stack-${{ github.event.pull_request.number }}'
+              body: 'CloudFormation test stack deployed. Stack name: pr-test-stack-${{ github.event.pull_request.number }}'
             })
 
   cleanup-on-merge:
