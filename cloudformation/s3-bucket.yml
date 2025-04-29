@@ -1,3 +1,4 @@
+
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'S3 bucket for our CICD PR'
 
@@ -24,5 +25,5 @@ Resources:
 
 Outputs:
   BucketName:
-    Description: 'Name of created S3 Bucket'
+    Description: 'Name of created S3 Buckets'
     Value: !Ref MyS3Bucket
