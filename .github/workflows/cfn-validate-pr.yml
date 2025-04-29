@@ -2,6 +2,7 @@ name: Validate CloudFormation on PR
 
 on:
   pull_request:
+    types: [opened, synchronize, closed]
     paths:
       - 'cloudformation/**'
 
@@ -26,7 +27,7 @@ jobs:
         run: |
           aws cloudformation validate-template --template-body file://cloudformation/s3-bucket.yml
 
-      - name: Deploy our stack
+      - name: Deploy test stack
         run: |
           stack_name="pr-test-stack-${{ github.event.pull_request.number }}"
           random_number=$((RANDOM))  # Generate a random number
