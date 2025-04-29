@@ -35,11 +35,11 @@ jobs:
             --template-body file://cloudformation/s3-bucket.yml \
             --parameters ParameterKey=Environment,ParameterValue=test
 
-            - name: Comment on the PR
-            uses: actions/github-script@v6
-            with:
-              github-token: ${{secrets.GITHUB_TOKEN}}
-              script: |
+      - name: Comment on the PR
+        uses: actions/github-script@v6
+        with:
+            github-token: ${{secrets.GITHUB_TOKEN}}
+            script: |
                 github.rest.issues.createComment({
                   issue_number: context.issue.number,
                   owner: context.repo.owner,
