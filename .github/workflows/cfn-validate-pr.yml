@@ -29,13 +29,12 @@ jobs:
       - name: Deploy our stack
         run: |
           stack_name="pr-test-stack-${{ github.event.pull_request.number }}"
-          suffix="pr${{ github.event.pull_request.number }}-${{ github.run_id }}"
+          random_number=$((RANDOM))  # Generate a random number
           aws cloudformation create-stack \
             --stack-name $stack_name \
             --template-body file://cloudformation/s3-bucket.yml \
-            --parameters \
-              ParameterKey=Environment,ParameterValue=test \
-              ParameterKey=Suffix,ParameterValue=$suffix
+            --parameters ParameterKey=Environment,ParameterValue=test ParameterKey=RandomNumber,ParameterValue=$random_number
+
 
       - name: Comment on the PR
         uses: actions/github-script@v6
