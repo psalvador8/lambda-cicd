@@ -9,12 +9,15 @@ Parameters:
       - test
       - staging
       - production
+  RandomNumber:
+    Type: Number
+    Default: 1234  # You can pass this value dynamically in the GitHub action
 
 Resources:
   MyS3Bucket:
     Type: 'AWS::S3::Bucket'
     Properties:
-      BucketName: !Sub '${AWS::StackName}-${Environment}-bucket'      
+      BucketName: !Sub '${AWS::StackName}-${Environment}-${AWS::Region}-${AWS::AccountId}-${RandomNumber}-bucket' # Ensure this is the dynamic name
       Tags:
         - Key: Environment
           Value: !Ref Environment
@@ -24,4 +27,4 @@ Resources:
 Outputs:
   BucketName:
     Description: 'Name of created S3 Bucket'
-    Value: !Ref MyS3Bucket     
+    Value: !Ref MyS3Bucket
