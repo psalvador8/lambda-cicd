@@ -33,4 +33,5 @@ jobs:
           aws cloudformation create-stack \
             --stack-name $stack_name \
             --template-body file://cloudformation/s3-bucket.yml \
-            --parameters ParameterKey=Environment,P
+            --parameters ParameterKey=Environment,ParameterValue=test
+        
