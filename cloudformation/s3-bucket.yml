@@ -11,7 +11,7 @@ Parameters:
       - production
   RandomNumber:
     Type: Number
-    Default: 1234  # You can pass this value dynamically in the GitHub action
+    Default: 1234  
 
 Resources:
   MyS3Bucket:
